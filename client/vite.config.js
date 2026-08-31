@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react';
 // so the browser only ever talks to the Vite origin.
 export default defineConfig({
   plugins: [react()],
+  // Vite only exposes VITE_* vars to the client by default; allow BACKEND_* too
+  // so import.meta.env.BACKEND_API_URL is available in the bundle.
+  envPrefix: ['VITE_', 'BACKEND_'],
   server: {
     port: 5173,
     proxy: {

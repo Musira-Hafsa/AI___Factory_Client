@@ -18,7 +18,7 @@ export function SocketProvider({ children }) {
       return;
     }
 
-    const s = io(import.meta.env.VITE_API_URL || '/', {
+    const s = io(import.meta.env.BACKEND_API_URL || '/', {
       auth: { token: getAuthToken() },
       transports: ['websocket', 'polling'],
     });
